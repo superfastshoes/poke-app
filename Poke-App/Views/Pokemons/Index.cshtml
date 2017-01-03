@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var pokemon in Model)
+            @foreach (var pokemon in Model)   
             {
                 <tr>
                     <td> @Html.ActionLink(pokemon.Name, "Details", "Pokemons", new {id = pokemon.Id},null) </td>
