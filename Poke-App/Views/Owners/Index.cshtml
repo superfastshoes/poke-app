@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Poke_App.Models.Owner>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Owners</h2>
+@if (!Model.Any())
+{
+    <p>No Owners Yet!</p>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Owners</th>
+            <th>Pokemons</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var owner in Model)
+        {
+            <tr>
+                <td> @Html.ActionLink(owner.Name, "Details", "Owners", new {id = owner.Id}, null) </td>
+                <td>@owner.PokemonDeck.Name</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

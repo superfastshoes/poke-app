@@ -1,0 +1,26 @@
+﻿@model Poke_App.ViewModels.RandomPokemonViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var className = Model.Owners.Count == 0 ? "popular" : null;
+}
+
+
+<h2 class="@className">@Model.Pokemon.Name</h2>
+
+@if (Model.Owners.Count == 0)
+{
+    <text>No one owns this pokemon!</text>
+}
+
+else
+{
+    <ul>
+        @foreach (var owner in Model.Owners)
+        {
+            <li>@owner.Name</li>
+        }
+    </ul>
+}

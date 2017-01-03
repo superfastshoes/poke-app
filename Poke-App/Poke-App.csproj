@@ -44,6 +44,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -170,16 +198,93 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OwnersController.cs" />
+    <Compile Include="Controllers\PokemonsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701021731214_InitialModel.cs" />
+    <Compile Include="Migrations\201701021731214_InitialModel.Designer.cs">
+      <DependentUpon>201701021731214_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021750445_AddHasPokemonToOwner.cs" />
+    <Compile Include="Migrations\201701021750445_AddHasPokemonToOwner.Designer.cs">
+      <DependentUpon>201701021750445_AddHasPokemonToOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021757436_AddPokemonDeckType.cs" />
+    <Compile Include="Migrations\201701021757436_AddPokemonDeckType.Designer.cs">
+      <DependentUpon>201701021757436_AddPokemonDeckType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021759575_PopulatePokemonDeckTypes.cs" />
+    <Compile Include="Migrations\201701021759575_PopulatePokemonDeckTypes.Designer.cs">
+      <DependentUpon>201701021759575_PopulatePokemonDeckTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021814148_ApplyAnnotationToOwnerName.cs" />
+    <Compile Include="Migrations\201701021814148_ApplyAnnotationToOwnerName.Designer.cs">
+      <DependentUpon>201701021814148_ApplyAnnotationToOwnerName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021833527_PopulatePokemonDecks.cs" />
+    <Compile Include="Migrations\201701021833527_PopulatePokemonDecks.Designer.cs">
+      <DependentUpon>201701021833527_PopulatePokemonDecks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021852229_ActuallyPopulatePokemonDecks.cs" />
+    <Compile Include="Migrations\201701021852229_ActuallyPopulatePokemonDecks.Designer.cs">
+      <DependentUpon>201701021852229_ActuallyPopulatePokemonDecks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021906562_UpdatedOwnersModel.cs" />
+    <Compile Include="Migrations\201701021906562_UpdatedOwnersModel.Designer.cs">
+      <DependentUpon>201701021906562_UpdatedOwnersModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021927265_UpdatedPokemonDeckModel.cs" />
+    <Compile Include="Migrations\201701021927265_UpdatedPokemonDeckModel.Designer.cs">
+      <DependentUpon>201701021927265_UpdatedPokemonDeckModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021930019_UpdatePokemonDeckRecords.cs" />
+    <Compile Include="Migrations\201701021930019_UpdatePokemonDeckRecords.Designer.cs">
+      <DependentUpon>201701021930019_UpdatePokemonDeckRecords.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701021958345_UpdateOwnerModel.cs" />
+    <Compile Include="Migrations\201701021958345_UpdateOwnerModel.Designer.cs">
+      <DependentUpon>201701021958345_UpdateOwnerModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030113380_AddBirthdateToOwner.cs" />
+    <Compile Include="Migrations\201701030113380_AddBirthdateToOwner.Designer.cs">
+      <DependentUpon>201701030113380_AddBirthdateToOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030116535_UpdateOwnersTable.cs" />
+    <Compile Include="Migrations\201701030116535_UpdateOwnersTable.Designer.cs">
+      <DependentUpon>201701030116535_UpdateOwnersTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030129016_PokemonTypeTable.cs" />
+    <Compile Include="Migrations\201701030129016_PokemonTypeTable.Designer.cs">
+      <DependentUpon>201701030129016_PokemonTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030150510_PokemonTypeTable1.cs" />
+    <Compile Include="Migrations\201701030150510_PokemonTypeTable1.Designer.cs">
+      <DependentUpon>201701030150510_PokemonTypeTable1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030204580_UpdatePokemonTable.cs" />
+    <Compile Include="Migrations\201701030204580_UpdatePokemonTable.Designer.cs">
+      <DependentUpon>201701030204580_UpdatePokemonTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701030209158_PopulatePokemonTypeTable.cs" />
+    <Compile Include="Migrations\201701030209158_PopulatePokemonTypeTable.Designer.cs">
+      <DependentUpon>201701030209158_PopulatePokemonTypeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Pokemon.cs" />
+    <Compile Include="Models\PokemonDeck.cs" />
+    <Compile Include="Models\PokemonType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\RandomPokemonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\bootstrap-lumen.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
@@ -188,6 +293,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -234,6 +342,12 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Pokemons\Random.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
+    <Content Include="Views\Owners\Details.cshtml" />
+    <Content Include="Views\Owners\Index.cshtml" />
+    <Content Include="Views\Pokemons\Index.cshtml" />
+    <Content Include="Views\Pokemons\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -245,6 +359,59 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201701021731214_InitialModel.resx">
+      <DependentUpon>201701021731214_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021750445_AddHasPokemonToOwner.resx">
+      <DependentUpon>201701021750445_AddHasPokemonToOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021757436_AddPokemonDeckType.resx">
+      <DependentUpon>201701021757436_AddPokemonDeckType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021759575_PopulatePokemonDeckTypes.resx">
+      <DependentUpon>201701021759575_PopulatePokemonDeckTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021814148_ApplyAnnotationToOwnerName.resx">
+      <DependentUpon>201701021814148_ApplyAnnotationToOwnerName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021833527_PopulatePokemonDecks.resx">
+      <DependentUpon>201701021833527_PopulatePokemonDecks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021852229_ActuallyPopulatePokemonDecks.resx">
+      <DependentUpon>201701021852229_ActuallyPopulatePokemonDecks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021906562_UpdatedOwnersModel.resx">
+      <DependentUpon>201701021906562_UpdatedOwnersModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021927265_UpdatedPokemonDeckModel.resx">
+      <DependentUpon>201701021927265_UpdatedPokemonDeckModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021930019_UpdatePokemonDeckRecords.resx">
+      <DependentUpon>201701021930019_UpdatePokemonDeckRecords.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701021958345_UpdateOwnerModel.resx">
+      <DependentUpon>201701021958345_UpdateOwnerModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030113380_AddBirthdateToOwner.resx">
+      <DependentUpon>201701030113380_AddBirthdateToOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030116535_UpdateOwnersTable.resx">
+      <DependentUpon>201701030116535_UpdateOwnersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030129016_PokemonTypeTable.resx">
+      <DependentUpon>201701030129016_PokemonTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030150510_PokemonTypeTable1.resx">
+      <DependentUpon>201701030150510_PokemonTypeTable1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030204580_UpdatePokemonTable.resx">
+      <DependentUpon>201701030204580_UpdatePokemonTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701030209158_PopulatePokemonTypeTable.resx">
+      <DependentUpon>201701030209158_PopulatePokemonTypeTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

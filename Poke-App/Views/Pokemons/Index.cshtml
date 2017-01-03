@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Poke_App.Models.Pokemon>
+@{
+    ViewBag.Title = "Pokemons";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Pokemons</h2>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Pokemon</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pokemon in Model)
+            {
+                <tr>
+                    <td> @Html.ActionLink(pokemon.Name, "Details", "Pokemons", new {id = pokemon.Id},null) </td>
+                    <td> @pokemon.PokemonType.TypeOfPokemon </td>
+                </tr>
+            }
+        </tbody>
+    </table>

@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Poke_App.Controllers;
 
 namespace Poke_App.Models
 {
@@ -18,8 +19,13 @@ namespace Poke_App.Models
         }
     }
 
+    // Gateway to our database
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        // Db set represents a table in our database
+        public DbSet<Pokemon> Pokemon { get; set; }
+        public DbSet<Owner> Owner { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
